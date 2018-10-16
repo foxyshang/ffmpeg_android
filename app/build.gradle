@@ -10,6 +10,13 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion as Integer
         versionCode rootProject.ext.versionCode as Integer
         versionName rootProject.ext.versionName as String
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
+
+
     }
 
     sourceSets.main {
@@ -28,13 +35,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
-    compile 'com.squareup.dagger:dagger-compiler:1.2.2'
-    compile 'com.squareup.dagger:dagger:1.2.2'
-    compile 'com.jakewharton:butterknife:5.1.2'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile 'com.squareup.assertj:assertj-android:1.0.0'
-    compile project(':FFmpegAndroid')
+    api 'com.squareup.dagger:dagger-compiler:1.2.2'
+    api 'com.squareup.dagger:dagger:1.2.2'
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation 'com.squareup.assertj:assertj-android:1.2.0'
+    api project(':FFmpegAndroid')
 }

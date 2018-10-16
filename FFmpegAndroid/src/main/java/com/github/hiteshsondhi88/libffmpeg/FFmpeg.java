@@ -37,10 +37,7 @@ public class FFmpeg implements FFmpegInterface {
     public void loadBinary(FFmpegLoadBinaryResponseHandler ffmpegLoadBinaryResponseHandler) throws FFmpegNotSupportedException {
         String cpuArchNameFromAssets = null;
         switch (CpuArchHelper.getCpuArch()) {
-            case x86:
-                Log.i("Loading FFmpeg for x86 CPU");
-                cpuArchNameFromAssets = "x86";
-                break;
+
             case ARMv7:
                 Log.i("Loading FFmpeg for armv7 CPU");
                 cpuArchNameFromAssets = "armeabi-v7a";
